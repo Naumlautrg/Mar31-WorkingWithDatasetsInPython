@@ -153,11 +153,11 @@ def predict_incomeBracket():
     user_df = pd.DataFrame([user_dict])
 
     # Fill in missing columns
-    for col in feature_columns:
+    for col in feature_names:
       if col not in user_df:
         user_df[col] = 0
 
-    user_df = user_df[feature_columns]
+    user_df = user_df[feature_names]
 
     pred = model.predict(user_df)[0]
     prob = model.predict_proba(user_df)[0][pred] * 100
